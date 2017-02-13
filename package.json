@@ -1,0 +1,13 @@
+{
+  "name": "concurmodule",
+  "version": "0.0.0",
+  "description": "a module to interact with the concur expenses app",
+  "main": "server.js",
+  "repository": "https://github.com/codingnights/concurmodule.git",
+  "author": "axel scheele",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.79.0",
+    "slackbots": "^1.0.2"
+  }
+}
