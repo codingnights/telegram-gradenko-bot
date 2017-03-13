@@ -1,11 +1,8 @@
-var SlackBots = require('slackbots')
+
 var TelegramBot = require('telegraf')
 var request = require('request')
 
-var botSlack = new SlackBots({
-    token: process.env.SLACKTOKEN ,
-    name: 'General Stavoros'
-});
+
 
 var botTelegram = new TelegramBot(process.env.TELEGRAMTOKEN);
 
