@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "a module to interact with the concur expenses app",
   "scripts": {
-    "start":"node src/server.js"
+    "start": "node src/server.js"
   },
   "main": "server.js",
   "repository": "https://github.com/codingnights/concurmodule.git",
@@ -11,6 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "request": "^2.79.0",
-    "slackbots": "^1.0.2"
+    "slackbots": "^1.0.2",
+    "telegraf": "^3.6.7"
   }
 }
