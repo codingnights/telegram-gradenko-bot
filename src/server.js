@@ -2,7 +2,7 @@ const Telegraf = require('telegraf');
 const express = require('express');
 const expressApp = express();
 
-const API_TOKEN = process.env.API_TOKEN || '';
+const API_TOKEN = process.env.TELEGRAMTOKEN || '';
 const PORT = process.env.PORT || 3000;
 const URL = process.env.URL || 'https://telegram-gradenko-bot.herokuapp.com';
 
