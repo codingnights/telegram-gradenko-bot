@@ -1,30 +1,26 @@
 const Telegraf = require('telegraf');
-const express = require('express');
-const expressApp = express();
 
-const API_TOKEN = process.env.TELEGRAMTOKEN || '';
+const TELEGRAMTOKEN = process.env.TELEGRAMTOKEN || '';
 const PORT = process.env.PORT || 3000;
-const URL = process.env.URL || 'https://telegram-gradenko-bot.herokuapp.com';
+const URL = process.env.URL || '';
 
-const bot = new Telegraf(API_TOKEN);
-bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
-expressApp.use(bot.webhookCallback(`/bot${API_TOKEN}`));
+const bot = new Telegraf(TELEGRAMTOKEN);
+// Set webhook
+bot.telegram.setWebhook(URL.concat('/secret-path'));
 
-expressApp.get('/', (req, res) => {
-//   res.send('Hello World!');
-  
-  res.command('start', (ctx) => {
-    console.log('start', ctx.from)
-    ctx.reply('Welcome!')
-  })
 
-  res.hears('hi', (ctx) => ctx.reply('WHAHAHAHAHAHAHA'))
+// Start https webhook
+bot.startWebhook('/secret-path', null, PORT)
 
-  res.on('sticker', (ctx) => ctx.reply('KEKEKEKEKEKEKEKE'))
+bot.command('start', (ctx) => {
+  console.log('start', ctx.from)
+  ctx.reply('Welcome!')
+})
 
-  res.startPolling() 
-});
+bot.hears('hi', (ctx) => ctx.reply('WHAHAHAHAHAHAHA'))
 
-expressApp.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+bot.on('text', (ctx) => ctx.reply('Hey there!'))
+
+bot.on('sticker', (ctx) => ctx.reply('KEKEKEKEKEKEKEKE'))
+
+bot.startPolling() 
