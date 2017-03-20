@@ -23,4 +23,4 @@ bot.on('text', (ctx) => ctx.reply('Hey there!'))
 
 bot.on('sticker', (ctx) => ctx.reply('KEKEKEKEKEKEKEKE'))
 
-bot.startPolling() 
+// bot.startPolling()
