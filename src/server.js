@@ -1,4 +1,3 @@
-const bot = new telegraf(API_TOKEN);
 const Telegraf = require('telegraf');
 const express = require('express');
 const expressApp = express();
