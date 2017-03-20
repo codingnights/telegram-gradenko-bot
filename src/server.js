@@ -14,16 +14,16 @@ expressApp.use(bot.webhookCallback(`/bot${API_TOKEN}`));
 expressApp.get('/', (req, res) => {
   res.send('Hello World!');
   
-  res.command('start', (ctx) => {
-    console.log('start', ctx.from)
-    ctx.reply('Welcome!')
-  })
+//   res.command('start', (ctx) => {
+//     console.log('start', ctx.from)
+//     ctx.reply('Welcome!')
+//   })
 
-  res.hears('hi', (ctx) => ctx.reply('WHAHAHAHAHAHAHA'))
+//   res.hears('hi', (ctx) => ctx.reply('WHAHAHAHAHAHAHA'))
 
-  res.on('sticker', (ctx) => ctx.reply('KEKEKEKEKEKEKEKE'))
+//   res.on('sticker', (ctx) => ctx.reply('KEKEKEKEKEKEKEKE'))
 
-  res.startPolling() 
+//   res.startPolling() 
 });
 
 expressApp.listen(PORT, () => {
