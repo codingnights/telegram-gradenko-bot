@@ -11,14 +11,21 @@ const botTelegram = new TelegramBot(API_TOKEN);
 bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
 expressApp.use(bot.webhookCallback(`/bot${API_TOKEN}`));
 
+expressApp.get('/', (req, res) => {
+  res.send('Hello World!');
+  
+  res.command('start', (ctx) => {
+    console.log('start', ctx.from)
+    ctx.reply('Welcome!')
+  })
 
-botTelegram.command('start', (ctx) => {
-  console.log('start', ctx.from)
-  ctx.reply('Welcome!')
-})
+  res.hears('hi', (ctx) => ctx.reply('WHAHAHAHAHAHAHA'))
 
-botTelegram.hears('hi', (ctx) => ctx.reply('WHAHAHAHAHAHAHA'))
+  res.on('sticker', (ctx) => ctx.reply('KEKEKEKEKEKEKEKE'))
 
-botTelegram.on('sticker', (ctx) => ctx.reply('KEKEKEKEKEKEKEKE'))
+  res.startPolling() 
+});
 
-botTelegram.startPolling()
+expressApp.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
