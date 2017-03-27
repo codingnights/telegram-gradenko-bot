@@ -88,5 +88,5 @@ module.exports = function (bot) {
         return ctx.answerCallbackQuery(`Oh, ${ctx.match[0]}! Great choise`)
     });
 
-    bot.startPolling()
+    // bot.startPolling()
 };
