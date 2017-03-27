@@ -53,13 +53,13 @@ module.exports = function (bot) {
     });
 
     bot.command('simple', (ctx) => {
-        return ctx.replyWithHTML('<b>Coke</b> or <i>Pepsi?</i>', Extra.markup(
+        return ctx.replyWithHTML('<b>Tabs</b> or <i>Spaces?</i>', Extra.markup(
             Markup.keyboard(['Tabs', 'Spaces'])
         ))
     });
 
     bot.command('inline', (ctx) => {
-        return ctx.reply('<b>Coke</b> or <i>Pepsi?</i>', Extra.HTML().markup((m) =>
+        return ctx.reply('<b>Tabs</b> or <i>Spaces?</i>', Extra.HTML().markup((m) =>
             m.inlineKeyboard([
                 m.callbackButton('Tabs', 'Tabs'),
                 m.callbackButton('Spaces', 'Spaces')
