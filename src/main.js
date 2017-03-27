@@ -4,6 +4,10 @@
 const {Extra, Markup} = require('telegraf');
 
 module.exports = function (bot) {
+    bot.command('start', (ctx) => {
+        ctx.reply('Hi there')
+    });
+
     bot.command('onetime', (ctx) => {
         return ctx.reply('One time keyboard', Markup
             .keyboard([
@@ -50,24 +54,24 @@ module.exports = function (bot) {
 
     bot.command('simple', (ctx) => {
         return ctx.replyWithHTML('<b>Coke</b> or <i>Pepsi?</i>', Extra.markup(
-            Markup.keyboard(['Coke', 'Pepsi'])
+            Markup.keyboard(['Tabs', 'Spaces'])
         ))
     });
 
     bot.command('inline', (ctx) => {
         return ctx.reply('<b>Coke</b> or <i>Pepsi?</i>', Extra.HTML().markup((m) =>
             m.inlineKeyboard([
-                m.callbackButton('Coke', 'Coke'),
-                m.callbackButton('Pepsi', 'Pepsi')
+                m.callbackButton('Tabs', 'Tabs'),
+                m.callbackButton('Spaces', 'Spaces')
             ])))
     });
 
     bot.command('random', (ctx) => {
         return ctx.reply('random example',
             Markup.inlineKeyboard([
-                Markup.callbackButton('Coke', 'Coke'),
-                Markup.callbackButton('Dr Pepper', 'Dr Pepper', Math.random() > 0.5),
-                Markup.callbackButton('Pepsi', 'Pepsi')
+                Markup.callbackButton('Tabs', 'Tabs'),
+                Markup.callbackButton('42', '42', Math.random() > 0.5),
+                Markup.callbackButton('Spaces', 'Spaces')
             ]).extra()
         )
     });
@@ -80,13 +84,13 @@ module.exports = function (bot) {
         ))
     });
 
-    bot.action('Dr Pepper', (ctx, next) => {
+    bot.action('42', (ctx, next) => {
         return ctx.reply('👍').then(next)
     });
 
     bot.action(/.+/, (ctx) => {
-        return ctx.answerCallbackQuery(`Oh, ${ctx.match[0]}! Great choise`)
+        return ctx.answerCallbackQuery(`Oh, ${ctx.match[0]}! Nice`)
     });
 
-    bot.startPolling()
+    // bot.startPolling()
 };
