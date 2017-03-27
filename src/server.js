@@ -7,7 +7,7 @@ const main = require('./main');
 /*
  * Bot config
  */
-const TELEGRAMTOKEN = process.env.TELEGRAMTOKEN || '';
+const TELEGRAMTOKEN = process.env.TELEGRAMTOKEN || 'A';
 const PORT = process.env.PORT || 3000;
 const URL = process.env.URL || '';
 
@@ -23,4 +23,5 @@ bot.startWebhook('/secret-path', null, PORT);
 /*
  * Start bot with main dialog
  */
+bot.use(Telegraf.log());
 main(bot);
